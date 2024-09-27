@@ -13,9 +13,7 @@ function getDbURI(dbname: string) {
 
 export async function dbCon() {
   // const MONGO_DB_URI = getDbURI('splendid_media_db')
-  const MONGO_DB_URI = getDbURI(
-    process.env.NODE_ENV === "production" ? "timetable" : "portfolio"
-  );
+  const MONGO_DB_URI = getDbURI(process.env.APP_NAME! || process.env.DARAJA_API_APP_NAME! || 'test-db')   
   if (isConnected) {
     return;
   }
